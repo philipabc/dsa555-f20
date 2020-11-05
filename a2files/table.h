@@ -1,11 +1,11 @@
 /*************************************************************/
 /*                                                           */
 /*    starter file for a2                                    */
-/*    													     */
-/*    v1.2: fixed comparison in simpletable::update...   	 */
+/*                                                           */
+/*    v1.2: fixed comparison in simpletable::update...       */
 /*          note this has no affect on compilation           */
 /*          or analysis                                      */
-/*    v1.1: fixed typo in simple table update removed _ 	 */
+/*    v1.1: fixed typo in simple table update removed _      */
 /*          from variable name                               */
 /*************************************************************/
 
