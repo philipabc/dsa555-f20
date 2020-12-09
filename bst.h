@@ -31,10 +31,22 @@ class BST{
 			print(stroot->right_);
 		}
 	}
+	//this function destroys the subtree
+	//with root stroot
+	void clear(Node* stroot){
+		if(stroot){
+
+			clear(stroot->left_);
+			clear(stroot->right_);
+			delete stroot
+		}
+	}
+
+
 	//recursive insert function
 	//insert the data into the subtree with root
 	//stroot
-	void insert(Node* stroot, const T& data){
+	void insert(Node*& stroot, const T& data){
 		if(stroot==nullptr){
 			stroot=new Node(data);
 		}
@@ -44,6 +56,27 @@ class BST{
 			}
 			else{
 				insert(stroot->right_,data);
+			}
+		}
+	}
+
+	bool isEqual(const Node* lhs,const Node* rhs){
+		if(lhs == nullptr && rhs == nullptr){
+			return true;
+		}
+		else if(lhs == nullptr && rhs != nullptr){
+			return false;
+		}
+		else if(rhs == nullptr && lhs!=nullptr){
+			return false;
+		}
+		else{
+			if(lhs->data_ != rhs->data_){
+				return false;
+			}
+			else{
+				return isEqual(lhs->left_,rhs->left_) &&
+					isEqual(lhs->right_, rhs->right_);
 			}
 		}
 	}
@@ -136,6 +169,13 @@ public:
 
 	~BST(){
 		//post order tree traversal
+		clear(root_);
 
 	}
+
+	bool operator==(const BST& rhs) const{
+		return isEqual(root_,rhs.root_);
+	}
+
+
 };
